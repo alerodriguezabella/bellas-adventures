@@ -44,5 +44,5 @@ List of tasks in order of priority
 ## Links
 - [Trello Link](#)
 - [Slides Link](#)
-- [Github repository Link](#)
-- [Deployment Link](#)
+- [Github repository Link](https://github.com/alerodriguezabella/bellas-adventures)
+- [Deployment Link](https://alerodriguezabella.github.io/bellas-adventures/)
