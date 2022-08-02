@@ -1,0 +1,149 @@
+body {
+    font-family: 'Mali', cursive;
+    display: flex;
+    text-align: center;
+}
+  
+/* GAME INTRO */
+
+.game-intro {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 2%;
+    border: 4px darkcyan dotted;
+    background-color: RGB(91, 210, 209);
+    /* width: 100vw; */
+    min-width: 1000px;
+    max-width: 1000px;
+    height: 1000px;
+}
+
+.game-intro h1 {
+    font-size: 3.5rem;
+}
+
+.game-intro img {
+    width: 45%;
+    border-radius: 10%;
+    margin: 20px;
+}
+
+.game-intro .main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.game-intro .game-info {
+    text-align: left;
+}
+
+.game-intro button {
+    font-size: 1.5rem;
+    background-color: gainsboro;
+    color: black;
+    border-radius: 5%;
+    border: none;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+
+.game-intro p {
+    font-size: 1rem;
+    margin-bottom: 0px;
+    width: 80%;
+}
+
+.game-intro .p-with-margin-bottom {
+    margin-bottom: 20px;
+}
+
+.game-intro .bi {
+    font-size: 4rem;
+}
+
+/* .game-intro .legend-button {
+    font-size: 0.75rem;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 5%;
+    border: none;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+} */
+
+/* CANVAS */
+#canvas {
+    border: 4px darkcyan dotted;
+    border-radius: 2%;
+    margin: 20px;
+}
+
+/* GAME OVER  */
+.game-over {
+    background-image: url('../images/game-over.png');
+    background-size: cover;
+
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+
+    border-radius: 2%;
+    border: 4px darkcyan dotted;
+    color: white;
+    background-color: RGB(91, 210, 209);
+    /* width: 100vw; */
+    min-width: 1000px;
+    max-width: 1000px;
+    height: 1000px;
+}
+
+.game-over button {
+    font-size: 1.5rem;
+    background-color: RGB(91, 210, 209);
+    color: black;
+    border-radius: 5%;
+    border: none;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+
+/* GAME WON  */
+.game-won {
+    background-image: url('../images/win-game.jpg');
+    background-size: cover;
+
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+
+    border-radius: 2%;
+    border: 4px darkcyan dotted;
+    background-color: RGB(91, 210, 209);
+    /* width: 100vw; */
+    min-width: 1000px;
+    max-width: 1000px;
+    height: 1000px;
+}
+
+.game-won button {
+    font-size: 1.5rem;
+    background-color: RGB(91, 210, 209);
+    color: black;
+    border-radius: 5%;
+    border: none;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}

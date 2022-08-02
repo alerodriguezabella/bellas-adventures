@@ -1,5 +1,5 @@
 # Bella's adventures
-Click [here](#) to see deployed game
+Click [here](https://alerodriguezabella.github.io/bellas-adventures/) to see deployed game
 
 ## Description
 Brief description of the project
@@ -21,6 +21,7 @@ List of features you might implement after the MVP
 
 - Add scoreboard
 - Increase difficulty: make Bella run faster (increasing bushes and doggies speed)
+- Add sound
 
 ## Data structure
 List of classes and methods
