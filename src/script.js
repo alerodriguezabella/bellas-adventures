@@ -1,5 +1,17 @@
 // import helpers from "./helpers";
 
+// Music
+let audio = new Audio('./audio/happy-soundtrack.mp3')
+audio.volume = 0.1
+let gameOverAudio = new Audio('./audio/game-over.mp3')
+gameOverAudio.volume = 1
+let gameWonAudio = new Audio('./audio/game-won.mp3')
+gameWonAudio.volume = 0.8
+let chewingAudio = new Audio ('./audio/chewing.mp3')
+chewingAudio.volume = 0.4
+let crashAudio = new Audio ('./audio/crash.mp3')
+crashAudio.volume = 0.4
+
 // Finding DOM elements
 const canvas = document.querySelector("#canvas");
 let ctx = canvas.getContext("2d");
@@ -161,6 +173,7 @@ window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     gameStateReset();
     updateGame();
+    audio.play();
   };
 
   // Setting keyboard 'Up' & 'Down' functionalities
@@ -273,6 +286,7 @@ window.onload = () => {
         bellaX + bellaWidth > element.x
       ) {
         energy -= 2;
+        crashAudio.play()
         element.visible = false;
       }
     });
@@ -397,6 +411,7 @@ window.onload = () => {
         bellaX + bellaWidth > element.x
       ) {
         energy++;
+        chewingAudio.play()
         element.visible = false;
       }
     });
@@ -417,6 +432,8 @@ window.onload = () => {
   function checkGameOver() {
     if (energy === 0) {
       cancelAnimationFrame(intervalId);
+      audio.pause();
+      gameOverAudio.play();
       gameOverScreen.style.display = "flex";
       // Hiding other game states
       canvas.style.display = "none";
@@ -428,6 +445,8 @@ window.onload = () => {
   function checkWin() {
     if (score >= 40) {
       cancelAnimationFrame(intervalId);
+      audio.pause();
+      gameWonAudio.play();
       gameWonScreen.style.display = "flex";
       // Hiding other game states
       canvas.style.display = "none";
@@ -438,6 +457,8 @@ window.onload = () => {
 };
 
 function startOver() {
+  gameOverAudio.pause();
+  gameWonAudio.pause();
   startScreen.style.display = "flex";
   // Hiding other game states
   gameWonScreen.style.display = "none";
@@ -465,4 +486,8 @@ function gameStateReset() {
   generateDogOne();
   generateDogTwo();
   generateBone();
+
+  audio.currentTime = 0;
+  gameOverAudio.currentTime = 0;
+  gameWonAudio.currentTime = 0;
 }
