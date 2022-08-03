@@ -16,7 +16,7 @@ let energy = 10;
 
 // Getting game images (base)
 let background = new Image();
-background.src = "./images/background-2.jpg";
+background.src = "./images/background.jpg";
 let bella = new Image();
 bella.src = "./images/bella-running.gif";
 let arrowOne = new Image();
@@ -426,7 +426,7 @@ window.onload = () => {
   }
 
   function checkWin() {
-    if (score >= 20) {
+    if (score >= 40) {
       cancelAnimationFrame(intervalId);
       gameWonScreen.style.display = "flex";
       // Hiding other game states
