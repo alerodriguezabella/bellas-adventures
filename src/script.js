@@ -285,6 +285,7 @@ window.onload = () => {
         // Bella left - obst right
         bellaX + bellaWidth > element.x
       ) {
+        crashAudio.currentTime = 0;
         energy -= 2;
         crashAudio.play()
         element.visible = false;
@@ -410,6 +411,7 @@ window.onload = () => {
         // Bella left - obst right
         bellaX + bellaWidth > element.x
       ) {
+        chewingAudio.currentTime = 0;
         energy++;
         chewingAudio.play()
         element.visible = false;
