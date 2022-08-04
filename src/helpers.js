@@ -19,6 +19,8 @@ function generateBushes() {
       image: obstBush,
       x: obstBushX,
       y: obstBushY,
+      height: bushHeight,
+      width: bushWidth,
       visible: true,
     };
     obstBushesArray.push(objBush);
@@ -48,6 +50,8 @@ function generateDogOne() {
       images: dogOneImages,
       x: obstDogOneX,
       y: obstDogOneY,
+      height: dogOneHeight,
+      width: dogOneWidth,
       visible: true,
     };
     obstDogOneArray.push(objDogOne);
@@ -77,6 +81,8 @@ function generateDogTwo() {
       images: dogTwoImages,
       x: obstDogTwoX,
       y: obstDogTwoY,
+      height: dogTwoHeight,
+      width: dogTwoWidth,
       visible: true,
     };
     obstDogTwoArray.push(objDogTwo);
@@ -103,6 +109,8 @@ function generateBone() {
       image: bone,
       x: boneX,
       y: boneY,
+      height: boneHeight,
+      width: boneWidth,
       visible: true,
     };
     boneArray.push(objBone);
@@ -126,20 +134,11 @@ function moveBushes() {
 
     // Drawing obstBush
     // Visual rep of image size (important for crashes)
-    // ctx.fillRect(element.x, element.y, bushWidth, bushHeight);
-    ctx.drawImage(element.image, element.x, element.y, bushWidth, bushHeight);
+    // ctx.fillRect(element.x, element.y, element.width, element.height);
+    ctx.drawImage(element.image, element.x, element.y, element.width, element.height);
 
     // Collision with bushes
-    if (
-      // Bella top - obst bottom
-      bellaY < element.y + bushHeight &&
-      // Bella bottom - obst top
-      bellaY + bellaHeight > element.y &&
-      // Bella right - obst left
-      bellaX < element.x + bushWidth &&
-      // Bella left - obst right
-      bellaX + bellaWidth > element.x
-    ) {
+    if (collision(element.x, element.y, element.height, element.width)) {
       crashAudio.currentTime = 0;
       energy -= 2;
       crashAudio.play();
@@ -152,9 +151,9 @@ function moveDogOne() {
   obstDogOneArray.forEach((element) => {
     // dogOne movement
     element.x -= 5;
-    if (element.x < -dogOneWidth - 5) {
+    if (element.x < -element.width - 5) {
       element.y = Math.random() * canvas.height - 80;
-      element.x = 1000 * Math.random() + 1000 + dogOneWidth;
+      element.x = 1000 * Math.random() + 1000 + element.width;
       score++;
     }
     // Checking if Bella 'touched' dogOne
@@ -164,27 +163,18 @@ function moveDogOne() {
 
     // Drawing obstDogOne
     // Visual rep of image size (important for crashes)
-    // ctx.fillRect(element.x, element.y, dogOneWidth, dogOneHeight);
+    // ctx.fillRect(element.x, element.y, element.width, element.height);
     const currentImageIndex = Math.floor((frame / 3) % element.images.length);
     ctx.drawImage(
       element.images[currentImageIndex],
       element.x,
       element.y,
-      dogOneWidth,
-      dogOneHeight
+      element.width,
+      element.height
     );
 
     // Collision with dogOne
-    if (
-      // Bella top - obst bottom
-      bellaY < element.y + dogOneHeight &&
-      // Bella bottom - obst top
-      bellaY + bellaHeight > element.y &&
-      // Bella right - obst left
-      bellaX < element.x + dogOneWidth &&
-      // Bella left - obst right
-      bellaX + bellaWidth > element.x
-    ) {
+    if (collision(element.x, element.y, element.height, element.width)) {
       energy = 0;
       element.visible = false;
     }
@@ -195,9 +185,9 @@ function moveDogTwo() {
   obstDogTwoArray.forEach((element) => {
     // dogTwo movement
     element.x -= 4;
-    if (element.x < -dogTwoWidth - 5) {
+    if (element.x < -element.width - 5) {
       element.y = Math.random() * canvas.height - 140;
-      element.x = 1000 * Math.random() + 1000 + dogTwoWidth;
+      element.x = 1000 * Math.random() + 1000 + element.width;
       score++;
     }
     // Checking if Bella 'touched' dogTwo
@@ -207,27 +197,18 @@ function moveDogTwo() {
 
     // Drawing obstDogTwo
     // Visual rep of image size (important for crashes)
-    // ctx.fillRect(element.x, element.y, dogTwoWidth, dogTwoHeight);
+    // ctx.fillRect(element.x, element.y, element.width, element.height);
     const currentImageIndex = Math.floor((frame / 3) % element.images.length);
     ctx.drawImage(
       element.images[currentImageIndex],
       element.x,
       element.y,
-      dogTwoWidth,
-      dogTwoHeight
+      element.width,
+      element.height
     );
 
     // Collision with dogTwo
-    if (
-      // Bella top - obst bottom
-      bellaY < element.y + dogTwoHeight &&
-      // Bella bottom - obst top
-      bellaY + bellaHeight > element.y &&
-      // Bella right - obst left
-      bellaX < element.x + dogTwoWidth &&
-      // Bella left - obst right
-      bellaX + bellaWidth > element.x
-    ) {
+    if (collision(element.x, element.y, element.height, element.width)) {
       energy = 0;
       element.visible = false;
     }
@@ -238,9 +219,9 @@ function moveBone() {
   boneArray.forEach((element) => {
     // bone movement
     element.x -= 2;
-    if (element.x < -boneWidth - 5) {
+    if (element.x < -element.width - 5) {
       element.y = Math.random() * canvas.height - 120;
-      element.x = 1000 * Math.random() + 1000 + boneWidth;
+      element.x = 1000 * Math.random() + 1000 + element.width;
       element.visible = true;
     }
     // Checking if Bella 'touched' bone
@@ -250,20 +231,11 @@ function moveBone() {
 
     // Drawing bone
     // Visual rep of image size (important for crashes)
-    // ctx.fillRect(element.x, element.y, boneWidth, boneHeight);
-    ctx.drawImage(element.image, element.x, element.y, boneWidth, boneHeight);
+    // ctx.fillRect(element.x, element.y, element.width, element.height);
+    ctx.drawImage(element.image, element.x, element.y, element.width, element.height);
 
     // Collision with bone
-    if (
-      // Bella top - obst bottom
-      bellaY < element.y + boneHeight &&
-      // Bella bottom - obst top
-      bellaY + bellaHeight > element.y &&
-      // Bella right - obst left
-      bellaX < element.x + boneWidth &&
-      // Bella left - obst right
-      bellaX + bellaWidth > element.x
-    ) {
+    if (collision(element.x, element.y, element.height, element.width)) {
       chewingAudio.currentTime = 0;
       energy++;
       chewingAudio.play();
@@ -272,4 +244,15 @@ function moveBone() {
   });
 }
 
-
+function collision(obstX, obstY, obstHeight, obstWidth) {
+  return (
+    // Bella top - obst bottom
+    bellaY < obstY + obstHeight &&
+    // Bella bottom - obst top
+    bellaY + bellaHeight > obstY &&
+    // Bella right - obst left
+    bellaX < obstX + obstWidth &&
+    // Bella left - obst right
+    bellaX + bellaWidth > obstX
+  )
+}

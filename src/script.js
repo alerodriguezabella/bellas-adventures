@@ -137,6 +137,8 @@ function checkGameOver() {
   if (energy === 0) {
     cancelAnimationFrame(intervalId);
     audio.pause();
+    chewingAudio.pause();
+    crashAudio.pause();
     gameOverAudio.play();
     gameOverScreen.style.display = "flex";
     // Hiding other game states
@@ -147,9 +149,11 @@ function checkGameOver() {
 }
 
 function checkWin() {
-  if (score >= 5) {
+  if (score >= 40) {
     cancelAnimationFrame(intervalId);
     audio.pause();
+    chewingAudio.pause();
+    crashAudio.pause();
     gameWonAudio.play();
     gameWonScreen.style.display = "flex";
     // Hiding other game states

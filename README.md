@@ -36,8 +36,13 @@ List of implemented features after the MVP:
 ## Data structure
 
 ### script.js
-- 
-- 
+- DOM manipulation 
+- Setting initial values (audio, game images, etc.)
+- Game state functions (startOver(), gameStateReset(), keyboardSetup(), showScoreBoard(), showEnergyBoard(), checkGameOver(), checkGameWin(), updateGame())
+
+### helpers.js
+- Setting initial values of obstacles
+- Obstacle related functions (generateBushes(), generateDogOne(), generateDogTwo(), generateBone(), moveBushes(), moveDogOne(), moveDogTwo(), moveBone())
 
 ## States y States Transitions
 List of states/views of the game:
