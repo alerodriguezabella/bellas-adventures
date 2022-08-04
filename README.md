@@ -30,7 +30,7 @@ List of implemented features after the MVP:
     - If Bella runs into doggies, her energy level, no matter where it is, will drop completely (Energy = 0)
     - If Bella runs into bones, her energy level will increase partially (Energy += 1)
 - Winning logic: If Bella's score reaches 40 (Score = 40) and she still has energy left (Energy > 0), she would have arrived to her final destination > YOU WIN!
-- Losing logic: If Bella runs out of energy she would't have been able to arrive to her final destination > YOU LOSE!
+- Losing logic: If Bella runs out of energy she wouldn't have been able to arrive to her final destination > YOU LOSE!
 - Add sound
 
 ## Data structure
