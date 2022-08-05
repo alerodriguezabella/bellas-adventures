@@ -196,6 +196,7 @@ function updateGame() {
   );
   showScoreBoard();
   showEnergyBoard();
+  // 2 = number of frames where the image is the same > the bigger the number the slower the animation
   const currentImageIndex = Math.floor((frame / 2) % bellaImages.length);
   ctx.drawImage(
     bellaImages[currentImageIndex],
