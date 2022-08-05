@@ -1,5 +1,5 @@
 # Bella's adventures
-Click <a href="https://alerodriguezabella.github.io/bellas-adventures/" target="_blank">here</a> to see the deployed game
+Click [here](https://alerodriguezabella.github.io/bellas-adventures/) to see the deployed game
 
 ## Description
 Brief description of the project:
