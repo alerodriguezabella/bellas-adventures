@@ -1,5 +1,5 @@
 # Bella's adventures
-Click [here](https://alerodriguezabella.github.io/bellas-adventures/) to see deployed game
+Click [here](https://alerodriguezabella.github.io/bellas-adventures/) to see the deployed game
 
 ## Description
 Brief description of the project:
@@ -15,7 +15,7 @@ List of min features:
 - Scoreboard:
     - Bella will start the game with no score (Score = 0)
 - Winning logic: When Bella's score reaches 20, she would have arrived to her final destination > YOU WIN!
-- Losing logic: When Bella runs into bushes or doggies, she would't have arrived to her final destination > YOU LOSE!
+- Losing logic: When Bella runs into bushes or doggies, she wouldn't have been able to arrive to her final destination > YOU LOSE!
 
 
 ## Backlog
